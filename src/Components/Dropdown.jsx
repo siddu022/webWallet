@@ -9,7 +9,11 @@ const Dropdown = () => {
   const buttonRef = useRef(null);
   const menuRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedNetwork, setSelectedNetwork] = useState("Solana"); // Default to Solana or previously selected network
+  const [selectedNetwork, setSelectedNetwork] = useState("Solana");
+
+  // State to manage wallets for both networks
+  const [solanaWallets, setSolanaWallets] = useState([]);
+  const [ethereumWallets, setEthereumWallets] = useState([]);
 
   const handleDropdownClicked = (event) => {
     event.stopPropagation();
@@ -39,7 +43,6 @@ const Dropdown = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isOpen]);
 
-  // Define the mapping for network details
   const networkDetails = {
     Solana: {
       name: "Solana",
@@ -99,8 +102,15 @@ const Dropdown = () => {
       </div>
 
       <div className="mt-6">
-        {selectedNetwork === "Solana" && <Solanawallet />}
-        {selectedNetwork === "Ethereum" && <Ethereumwallet />}
+        {selectedNetwork === "Solana" && (
+          <Solanawallet wallets={solanaWallets} setWallets={setSolanaWallets} />
+        )}
+        {selectedNetwork === "Ethereum" && (
+          <Ethereumwallet
+            wallets={ethereumWallets}
+            setWallets={setEthereumWallets}
+          />
+        )}
       </div>
     </div>
   );

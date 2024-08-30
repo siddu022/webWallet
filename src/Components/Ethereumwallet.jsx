@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import deleteIcon from "../assets/delete.svg";
 
-export function Ethereumwallet() {
+export function EthereumWallet() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [wallets, setWallets] = useState([]);
   const [password, setPassword] = useState("");
@@ -151,4 +151,4 @@ export function Ethereumwallet() {
   );
 }
 
-export default Ethereumwallet;
+export default EthereumWallet;
