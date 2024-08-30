@@ -31,6 +31,7 @@ function App() {
         return <Welcome nextStep={nextStep} />;
     }
   };
+
   const nextStep = () => {
     setCurrentStep(currentStep + 1);
   };
@@ -39,10 +40,10 @@ function App() {
   };
   return (
     <NetworkProvider>
-      <div className={`bg-primary w-full  h-screen overflow-auto`}>
+      <div className="bg-primary w-full h-screen overflow-auto">
         <div
-          className={` flex flex-col justify-center items-center
-        h-[65%] ${styles.paddingX}`}
+          className={`flex flex-col justify-start items-center
+          min-h-screen ${styles.paddingX} pt-[10vh]`}
         >
           {renderStep()}
         </div>

@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 const Account = () => {
   return (
     <div
-      className={` ${styles.paddingX} font-poppins flex flex-col items-center justify-center min-h-screen`}
+      className={` ${styles.paddingX} font-poppins flex flex-col items-center justify-center `}
     >
       <div className="text-center mb-8">
         <h1 className="text-fuchsia-50 text-[36px]">Wallets</h1>

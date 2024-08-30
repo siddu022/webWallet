@@ -27,7 +27,7 @@ const Secretrecov = ({ nextStep, prevStep }) => {
   };
   return (
     <div className={`flex  flex-col ${styles.paddingX} font-poppins`}>
-      <div className={` flex flex-col justify-center items-center mt-52`}>
+      <div className={` flex flex-col justify-center items-center `}>
         <h1 className="text-[36px] text-fuchsia-50">Secret Recovery Phrase</h1>
       </div>
       <p className="text-center font-poppins font-thin text-[16px] text-gray-400 mt-3">

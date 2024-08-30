@@ -18,6 +18,7 @@ const Password = ({ nextStep }) => {
   const lenPass = password.length >= 8 || confirmPassword.length >= 8;
   const isReadyToProceed =
     checked && lenPass && isPasswordsMatching && !isInputEmpty;
+  localStorage.setItem("password", password);
 
   const handleNext = () => {
     if (!isReadyToProceed) {
@@ -31,7 +32,7 @@ const Password = ({ nextStep }) => {
 
   return (
     <div className={`flex flex-col ${styles.paddingX} font-poppins`}>
-      <div className={` flex flex-col justify-center items-center mt-52`}>
+      <div className={` flex flex-col justify-center items-center `}>
         <h1 className="text-[36px] text-fuchsia-50">Create a Password</h1>
       </div>
       <p className="text-center font-poppins font-thin text-[16px] text-gray-400 mt-3">
