@@ -86,6 +86,9 @@ export function EthereumWallet() {
             <div className="address mb-2">
               <strong>Address:</strong> {wallet.address}
             </div>
+            <div className="wallet-number mb-2">
+              <strong>Wallet Number:</strong> {index + 1}
+            </div>
             <div className="private-key">
               <strong>Private Key:</strong>{" "}
               <button
@@ -126,6 +129,12 @@ export function EthereumWallet() {
                   className="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                 >
                   Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Submit
                 </button>
               </div>
             </form>
