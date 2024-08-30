@@ -4,16 +4,13 @@ import sol from "../assets/solana.png";
 import eth from "../assets/ethereum.webp";
 import Solanawallet from "./Solanawallet.jsx";
 import Ethereumwallet from "./Ethereumwallet.jsx";
+import PropTypes from "prop-types";
 
-const Dropdown = () => {
+const Dropdown = ({ wallets }) => {
   const buttonRef = useRef(null);
   const menuRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedNetwork, setSelectedNetwork] = useState("Solana");
-
-  // State to manage wallets for both networks
-  const [solanaWallets, setSolanaWallets] = useState([]);
-  const [ethereumWallets, setEthereumWallets] = useState([]);
 
   const handleDropdownClicked = (event) => {
     event.stopPropagation();
@@ -68,7 +65,7 @@ const Dropdown = () => {
               alt={networkDetails[selectedNetwork].name}
               className="h-6 w-6"
             />
-            <span>{networkDetails[selectedNetwork].name} </span>
+            <span>{networkDetails[selectedNetwork].name} Network</span>
           </div>
           <ChevronDownIcon
             className={`h-6 w-6 transform transition duration-200 ${
@@ -103,17 +100,18 @@ const Dropdown = () => {
 
       <div className="mt-6">
         {selectedNetwork === "Solana" && (
-          <Solanawallet wallets={solanaWallets} setWallets={setSolanaWallets} />
+          <Solanawallet wallets={wallets} selectedNetwork={selectedNetwork} />
         )}
         {selectedNetwork === "Ethereum" && (
-          <Ethereumwallet
-            wallets={ethereumWallets}
-            setWallets={setEthereumWallets}
-          />
+          <Ethereumwallet wallets={wallets} selectedNetwork={selectedNetwork} />
         )}
       </div>
     </div>
   );
+};
+
+Dropdown.propTypes = {
+  wallets: PropTypes.array.isRequired,
 };
 
 export default Dropdown;

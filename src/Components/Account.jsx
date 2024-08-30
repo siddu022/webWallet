@@ -1,18 +1,22 @@
-import styles from "../style.js";
+import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 
 const Account = () => {
-  return (
-    <div
-      className={` ${styles.paddingX} font-poppins flex flex-col items-center justify-center `}
-    >
-      <div className="text-center mb-8">
-        <h1 className="text-fuchsia-50 text-[36px]">Wallets</h1>
-      </div>
+  const [wallets, setWallets] = useState([]);
 
-      {/* Fixed container for the dropdown and wallet details */}
+  useEffect(() => {
+    const savedWallets = JSON.parse(localStorage.getItem("all_wallets")) || [];
+    setWallets(savedWallets);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("all_wallets", JSON.stringify(wallets));
+  }, [wallets]);
+
+  return (
+    <div>
       <div className="w-[582px]">
-        <Dropdown />
+        <Dropdown wallets={wallets} />
       </div>
     </div>
   );
